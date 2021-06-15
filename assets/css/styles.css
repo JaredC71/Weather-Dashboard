@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    letter-spacing: 2px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Roboto Slab', serif;
+
+}
+
+ul {
+    list-style-type: none;
+}
+
+header {
+    width: 100%;
+    padding: 20px 0;
+    background: radial-gradient(circle, rgba(19,136,173,1) 25%, rgba(43,55,164,1) 89%);
+}
+
+header h2 {
+    color: white;
+}
+main {
+    width: 100%;
+    display: flex;
+    padding: 20px;
+}
+
+article {
+    width: 100%;
+    margin: 0 20px;
+   
+}
+.jumbotron {
+    margin: 0 20px;
+    border: solid thin #333;
+
+}
+
+.five-day-forcast {
+    margin: 20px;
+    width: 100%;
+
+}
+
+#five-day-housing {
+    display: flex;
+}
+
+#five-day-housing p {
+    color: white;
+    font-size: 20px;
+}
+
+.card {
+    background-color: rgba(43, 44, 66, 0.959);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 20px;
+
+}
+article h2 {
+    margin: 10px 5px;
+  
+}
+
+article p {
+    margin: 10px 5px;
+}
+
+
+#city-input {
+    padding: 7px 0px;
+    margin: 5px 0;
+    width: 100%;
+}
+
+aside button {
+    width: 100%;
+    border-color: transparent;
+    padding: 7px 0;
+    margin-bottom: 10px;
+    background-color: rgba(19,136,173,1);
+    border-radius: 5px;
+    color: white;
+}
+
+#search-historyEl {
+    border-top: solid thin #333;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-history-item {
+    background-color: rgb(190, 190, 190);
+    border-radius: 5px;
+    width: 100%;
+    margin: 5px 0;
+    padding: 7px 0;
+    text-align: center;
+    cursor: pointer;
+}
+
+.weather-icon {
+    width: 50px;
+    display: block;
+    
+
+}
+
+#icon-Jumbo {
+    display: inline;
+    position: relative;
+    left: 10px;
+  
+}
+
+#uv-green {
+    padding: 5px 8px;
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+}
+.uv-red {
+    padding: 5px 8px;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+}
