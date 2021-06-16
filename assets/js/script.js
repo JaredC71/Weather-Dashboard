@@ -1,13 +1,14 @@
-const searchBarVal = document.getElementById('city-input');
-const searchBtn = document.getElementById('searchBtn');
-const searchHistoryEl = document.getElementById('search-historyEl');
-const cityNameJumbotron = document.getElementById('city-data-jumbotron');
-const tempJumbotron = document.getElementById('temp-data-jumbotron');
-const windJumbotron = document.getElementById('wind-data-jumbotron');
-const humidityJumbotron = document.getElementById('humidity-data-jumbotron');
-const UV_Index_Jumbotron = document.getElementById('UV-index-data-jumbotron');
-const fiveDay_ForcastEl = document.getElementById('five-day-housing');
-let search_History = [];
+const searchBarVal = document.getElementById('city-input'); //search bar
+const searchBtn = document.getElementById('searchBtn'); //submit button
+const searchHistoryEl = document.getElementById('search-historyEl');//housing element for search history blocks
+const cityNameJumbotron = document.getElementById('city-data-jumbotron');//where city name will go in the jumbotron
+const tempJumbotron = document.getElementById('temp-data-jumbotron');//where the temperature will go in the jumbotron
+const windJumbotron = document.getElementById('wind-data-jumbotron');//where the wind will go in the jumbotron
+const humidityJumbotron = document.getElementById('humidity-data-jumbotron');//where the humidity will go in the jumbotron
+const UV_Index_Jumbotron = document.getElementById('UV-index-data-jumbotron');//where the UV index will go in the jumbotron
+const fiveDay_ForcastEl = document.getElementById('five-day-housing');//housing element for the five cards displaying the next five days of weather will go
+let search_History = [];//will house our city names after being submited
+//this function will run on load in order to render our search history after refresh
 function startUp() {
     let search_History_Storage = JSON.parse(localStorage.getItem('search-history'));
     if (search_History_Storage !== null) {
@@ -16,10 +17,11 @@ function startUp() {
     renderStorage();
     
 }
+//when clicked, we will fetch our urls and extract the necessary data.
 searchBtn.addEventListener('click', (event) => {
     event.preventDefault();
     let baseUrl = 'https://api.openweathermap.org/data/2.5/weather?q=';
-    let cityName = searchBarVal.value;
+    let cityName = searchBarVal.value;//city name equals whatever the user submits into the search bar
     let APIKey = '&APPID=1f5285776176cb63d4dd947ae4b66e26';
     let requestURL = baseUrl + cityName + APIKey;
     fetch(requestURL)
@@ -32,9 +34,9 @@ searchBtn.addEventListener('click', (event) => {
         let JumboDateYear = new Date().getFullYear();
         let JumboDate = `${JumboDateMonth}/${JumboDateDay}/${JumboDateYear}`;
         cityNameJumbotron.textContent = data.name + " "+ JumboDate;
-        search_History.push(data.name);
-        storeData();
-        renderStorage();
+        search_History.push(data.name);//add the city into our search history array
+        storeData();//store the city
+        renderStorage();//render the stored city onto the page
         let secondUrlBase = 'https://api.openweathermap.org/data/2.5/onecall?lat=';
         let latValue = data.coord.lat;
         let lonPlaceholder = '&lon=';
