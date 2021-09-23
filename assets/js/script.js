@@ -9,6 +9,12 @@ const UV_Index_Jumbotron = document.getElementById('UV-index-data-jumbotron');//
 const fiveDay_ForcastEl = document.getElementById('five-day-housing');//housing element for the five cards displaying the next five days of weather will go
 let search_History = [];//will house our city names after being submited
 //this function will run on load in order to render our search history after refresh
+
+function toTimestamp(strDate){
+    var datum = Date.parse(strDate);
+    return datum/1000;
+   }
+   
 function startUp() {
     let search_History_Storage = JSON.parse(localStorage.getItem('search-history'));
     if (search_History_Storage !== null) {
@@ -234,6 +240,7 @@ function generateCards(dataSet) {
     let dayFourHumidity = document.createElement('p');
     dayFourEl.className = 'card';
     dayFourDate.textContent = dataSet.list[24].dt_txt;
+    console.log(dataSet.list[24].dt_txt)
     dayFourTemp.textContent = "Temp: " + dataSet.list[24].main.temp + "°F";
     dayFourWind.textContent = "Wind: " + dataSet.list[24].wind.speed + " MPH";
     dayFourHumidity.textContent = "Humidity: " + dataSet.list[24].main.humidity + " %";

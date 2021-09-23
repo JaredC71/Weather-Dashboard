@@ -36,6 +36,8 @@ main {
 article {
     width: 100%;
     margin: 0 20px;
+    display: flex;
+    flex-direction: column;
    
 }
 .jumbotron {
@@ -136,4 +138,30 @@ aside button {
     background-color: red;
     color: white;
     border-radius: 5px;
+}
+
+@media(max-width: 1300px) {
+    #five-day-housing {
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
+
+    }
+}
+
+@media (max-width: 620px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+    article {
+        align-items: center;
+        margin: 10px;
+
+    }
+
+    .jumbotron {
+        width: 90%;
+        margin: 0;
+    }
 }
